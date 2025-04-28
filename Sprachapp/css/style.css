@@ -1,0 +1,408 @@
+/* style.css - Hauptstil für die Sprachapp */
+
+:root {
+    --primary-color: #4a89dc;
+    --secondary-color: #5d9cec;
+    --accent-color: #ff9800;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    --success-color: #37bc9b;
+    --danger-color: #da4453;
+    --warning-color: #ffce54;
+    --info-color: #4fc1e9;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #f5f7fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    flex: 1;
+}
+
+/* Card Stilisierung */
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 10px 10px 0 0 !important;
+    font-weight: bold;
+}
+
+/* Karteikarten-Stil */
+.flashcard {
+    perspective: 1000px;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.flashcard-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flashcard.flipped .flashcard-inner {
+    transform: rotateY(180deg);
+}
+
+.flashcard-front, .flashcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.flashcard-front {
+    background-color: white;
+    color: var(--dark-color);
+}
+
+.flashcard-back {
+    background-color: var(--primary-color);
+    color: white;
+    transform: rotateY(180deg);
+}
+
+/* Audio Button */
+.audio-btn {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.audio-btn:hover {
+    color: var(--accent-color);
+}
+
+/* Streak Badge */
+.streak-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--warning-color);
+    color: var(--dark-color);
+    border-radius: 20px;
+    padding: 5px 10px;
+    font-weight: bold;
+}
+
+.streak-badge i {
+    margin-right: 5px;
+    color: #ff6347;
+}
+
+/* Leaderboard */
+.leaderboard-table {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.leaderboard-table th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.leaderboard-table tr:nth-child(1) td {
+    background-color: gold;
+    font-weight: bold;
+}
+
+.leaderboard-table tr:nth-child(2) td {
+    background-color: silver;
+}
+
+.leaderboard-table tr:nth-child(3) td {
+    background-color: #cd7f32; /* Bronze */
+}
+
+/* Login und Registrierung */
+.auth-form {
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Dashboard Stats */
+.stats-card {
+    text-align: center;
+    padding: 15px;
+}
+
+.stats-card i {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.stats-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--dark-color);
+}
+
+.stats-label {
+    color: #6c757d;
+    font-size: 14px;
+}
+
+/* Für Unit-Karten */
+.unit-card {
+    height: 100%;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.unit-card:hover {
+    border-color: var(--primary-color);
+}
+
+.unit-card .card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.unit-card .btn {
+    margin-top: auto;
+}
+
+/* Für den Mini-Test */
+.mini-test-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.result-correct {
+    color: var(--success-color);
+    font-weight: bold;
+}
+
+.result-wrong {
+    color: var(--danger-color);
+    font-weight: bold;
+}
+
+/* Admin-Bereich */
+.admin-sidebar {
+    background-color: var(--dark-color);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* style.css - Fortsetzung */
+
+.admin-sidebar .nav-link {
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.admin-sidebar .nav-link:hover, 
+.admin-sidebar .nav-link.active {
+    background-color: var(--primary-color);
+}
+
+.admin-sidebar .nav-link i {
+    margin-right: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .flashcard {
+        height: 150px;
+    }
+    
+    .stats-card {
+        margin-bottom: 15px;
+    }
+    
+    .auth-form {
+        padding: 15px;
+    }
+}
+
+/* Animation für richtige und falsche Antworten */
+@keyframes correct-answer {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); background-color: var(--success-color); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrong-answer {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+    100% { transform: translateX(0); }
+}
+
+.answer-correct {
+    animation: correct-answer 0.5s ease;
+}
+
+.answer-wrong {
+    animation: wrong-answer 0.5s ease;
+    background-color: var(--danger-color) !important;
+    color: white !important;
+}
+
+/* Switch für Deutsch-Englisch Umschaltung */
+.language-switch {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.language-switch .form-check-input {
+    height: 20px;
+    width: 40px;
+}
+
+.language-switch .form-check-label {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+/* Favoriten-Button */
+.favorite-btn {
+    background: none;
+    border: none;
+    color: #ccc;
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+.favorite-btn.active, .favorite-btn:hover {
+    color: var(--warning-color);
+}
+
+/* Fortschrittsbalken */
+.progress-container {
+    margin-bottom: 20px;
+}
+
+.progress {
+    height: 10px;
+    border-radius: 5px;
+}
+
+/* Kahoot-Style Quiz */
+.quiz-option {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    background-color: white;
+    transition: all 0.3s ease;
+    text-align: left;
+    font-size: 18px;
+}
+
+.quiz-option:hover {
+    border-color: var(--primary-color);
+    background-color: #f0f7ff;
+}
+
+.quiz-option.selected {
+    border-color: var(--primary-color);
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Rewards und Abzeichen */
+.rewards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.badge-item {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #e9ecef;
+    color: #adb5bd;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.badge-item.earned {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.badge-item i {
+    font-size: 32px;
+    margin-bottom: 5px;
+}
+
+.badge-name {
+    font-size: 12px;
+    text-align: center;
+}
+
+.badge-tooltip {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--dark-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    width: 150px;
+    text-align: center;
+}
+
+.badge-item:hover .badge-tooltip {
+    opacity: 1;
+    visibility: visible;
+}
